@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Heritage Metal Artifacts | Bengaluru</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: #f6f0e4;
+            color: #3d2b1f;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        header {
+            background: #2d1b12;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #d6a84f;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #d6a84f;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            background:
+                linear-gradient(rgba(35,20,12,0.65), rgba(35,20,12,0.65)),
+                url("https://images.unsplash.com/photo-1602928321679-560bb453f190?auto=format&fit=crop&w=1600&q=80")
+                center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 30px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            color: #e0b65a;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 21px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #a66a2c;
+            color: white;
+            padding: 13px 28px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #d6a84f;
+            color: #2d1b12;
+        }
+
+        /* COMMON */
+        section {
+            padding: 75px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            color: #5b351f;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #765b48;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #fffaf1;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-container p {
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 5px 18px rgba(74,48,30,0.12);
+            border-top: 4px solid #a66a2c;
+        }
+
+        .service-card .icon {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .service-card h3 {
+            color: #5b351f;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-family: Arial, sans-serif;
+            color: #666;
+        }
+
+        /* COLLECTION */
+        .collection {
+            background: #efe4d1;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .product {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .product img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            color: #5b351f;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            font-family: Arial, sans-serif;
+            color: #666;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #2d1b12;
+            color: white;
+        }
+
+        .contact .section-title {
+            color: #e0b65a;
+        }
+
+        .contact-container {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .contact-box {
+            background: #40281b;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .contact-box h3 {
+            color: #d6a84f;
+            margin-bottom: 10px;
+        }
+
+        .contact-box p,
+        .contact-box a {
+            font-family: Arial, sans-serif;
+            color: #eee;
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1c100a;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* WHATSAPP */
+        .whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #25D366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 28px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 999;
+        }
+
+        /* MOBILE */
+        @media(max-width: 768px) {
+
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .services-grid,
+            .products,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+    <div class="logo">
+        Heritage Metal Artifacts
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#collection">Collection</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+
+<!-- HOME -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>Timeless Heritage</h1>
+
+        <p>
+            Discover beautiful antique metal artifacts,
+            traditional crafts and timeless pieces that preserve
+            India's rich cultural heritage.
+        </p>
+
+        <a href="#collection" class="btn">
+            Explore Collection
+        </a>
+
+        <a href="#contact" class="btn">
+            Contact Us
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT US -->
+<section class="about" id="about">
+
+    <div class="about-container">
+
+        <h2 class="section-title">
+            About Us
+        </h2>
+
+        <p class="section-subtitle">
+            Preserving tradition, craftsmanship and history through
+            beautiful metal artifacts.
+        </p>
+
+        <p>
+            Heritage Metal Artifacts is a dedicated antique and
+            traditional metal artifacts shop based in Bengaluru.
+            We offer a carefully selected collection of traditional
+            metalware, decorative artifacts and heritage pieces.
+        </p>
+
+        <p>
+            Our collection celebrates Indian craftsmanship and
+            traditional artistry. Every artifact is selected with
+            attention to its design, workmanship and cultural value.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section id="services">
+
+    <h2 class="section-title">
+        Our Services
+    </h2>
+
+    <p class="section-subtitle">
+        We provide artifacts and services for collectors,
+        homes, temples, interiors and special occasions.
+    </p>
+
+    <div class="services-grid">
+
+        <div class="service-card">
+            <div class="icon">🏺</div>
+            <h3>Antique Artifacts</h3>
+            <p>
+                Traditional metal artifacts and decorative
+                heritage pieces.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">🪔</div>
+            <h3>Traditional Lamps</h3>
+            <p>
+                Beautiful traditional metal lamps suitable for
+                homes, temples and celebrations.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">🛕</div>
+            <h3>Temple Artifacts</h3>
+            <p>
+                Traditional decorative pieces inspired by
+                Indian temple craftsmanship.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">🎁</div>
+            <h3>Heritage Gifts</h3>
+            <p>
+                Unique traditional artifacts for weddings,
+                festivals and special occasions.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">🏠</div>
+            <h3>Home Decor</h3>
+            <p>
+                Elegant metal artifacts to add a traditional
+                touch to your interiors.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="icon">🔨</div>
+            <h3>Restoration</h3>
+            <p>
+                Restoration and maintenance assistance for
+                selected traditional metal artifacts.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COLLECTION -->
+<section class="collection" id="collection">
+
+    <h2 class="section-title">
+        Our Collection
+    </h2>
+
+    <p class="section-subtitle">
+        Explore our range of traditional and decorative metal artifacts.
+    </p>
+
+    <div class="products">
+
+        <div class="product">
+
+            <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>Traditional Brass Lamp</h3>
+
+                <p>
+                    Classic Indian-style metal lamp suitable
+                    for traditional interiors.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>Decorative Metal Artifact</h3>
+
+                <p>
+                    Heritage-inspired decorative artifact
+                    for homes and collections.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80">
+
+            <div class="product-info">
+
+                <h3>Traditional Decor</h3>
+
+                <p>
+                    Beautiful metal decor pieces inspired by
+                    Indian artistic traditions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <h2 class="section-title">
+        Contact Us
+    </h2>
+
+    <p class="section-subtitle" style="color:#ddd;">
+        Visit our shop or contact us for enquiries about our collection.
+    </p>
+
+    <div class="contact-container">
+
+        <div class="contact-box">
+
+            <h3>📍 Shop Address</h3>
+
+            <p>
+                Malleswaram,<br>
+                Bengaluru, Karnataka,<br>
+                India
+            </p>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <h3>📞 Phone</h3>
+
+            <p>
+                <a href="tel:+919632371400">
+                    +91 96323 71400
+                </a>
+            </p>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <h3>✉ Email</h3>
+
+            <p>
+                <a href="mailto:sukruthgr2005@gmail.com">
+                    sukruthgr2005@gmail.com
+                </a>
+            </p>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <h3>🕐 Opening Hours</h3>
+
+            <p>
+                Monday - Saturday<br>
+                10:00 AM - 7:30 PM
+            </p>
+
+        </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:35px;">
+
+        <a
+            href="https://wa.me/919632371400"
+            class="btn"
+            target="_blank">
+            WhatsApp Us
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © 2026 Heritage Metal Artifacts.
+        All Rights Reserved.
+    </p>
+
+    <p>
+        Traditional Craftsmanship • Heritage • Art
+    </p>
+
+</footer>
+
+
+<!-- WHATSAPP BUTTON -->
+<a
+    href="https://wa.me/919632371400"
+    class="whatsapp"
+    target="_blank"
+    title="Chat on WhatsApp">
+
+    ☎
+
+</a>
+
+</body>
+</html>
